@@ -1,4 +1,5 @@
 import 'package:ecommerce_app_ui/product/shop_page.dart';
+import 'package:ecommerce_app_ui/utils/theme_manager.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -31,9 +32,16 @@ class EcommerceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      // theme: Theme.of(context).copyWith(
+      //   colorScheme: Theme.of(context).colorScheme.copyWith(
+      //         primary: const Color(0xfff63f51),
+      //       ),
+      // ),
+
+      theme: ThemeManager().applicationTheme(),
       debugShowCheckedModeBanner: false,
-      home: Shoppage(),
+      home: const Shoppage(),
     );
   }
 }
