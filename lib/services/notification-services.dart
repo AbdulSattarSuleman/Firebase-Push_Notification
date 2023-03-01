@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:app_settings/app_settings.dart';
+import 'package:ecommerce_app_ui/product/product_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:flutter/foundation.dart';
@@ -137,13 +138,13 @@ class NotificationServices {
   }
 
   void handleMessage(BuildContext context, RemoteMessage message) {
-    if (message.data['type'] == 'msj') {
-      // Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //         builder: (context) => MessageScreen(
-      //               id: message.data['id'],
-      //             )));
+    if (message.data['type'] == 'msg') {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ProductPage(
+                    id: message.data['id'],
+                  )));
     }
   }
 }

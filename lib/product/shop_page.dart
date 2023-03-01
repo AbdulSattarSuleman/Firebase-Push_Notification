@@ -20,6 +20,9 @@ class _ShoppageState extends State<Shoppage> {
 
     // Call Method FirebaseInit
     notificationServices.firebaseInit(context);
+
+    // Call Method
+    notificationServices.setupInteractMessage(context);
     // Call Method for Refresh Token
     notificationServices.isTokenRefresh();
     // Call Method for get Device Token
@@ -32,7 +35,7 @@ class _ShoppageState extends State<Shoppage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('ShopPage')),
+      appBar: AppBar(title: const Text('ShopPage')),
       body: ListView(),
     );
   }
