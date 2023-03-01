@@ -8,6 +8,7 @@ class ThemeManager {
         fontFamily: 'Railway',
         primaryColor: ColorManager.primaryColor,
         appBarTheme: AppBarTheme(
+            elevation: 0,
             centerTitle: true,
             backgroundColor: ColorManager.primaryColor,
             systemOverlayStyle: const SystemUiOverlayStyle(

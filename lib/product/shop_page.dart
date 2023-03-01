@@ -1,7 +1,10 @@
+import 'package:ecommerce_app_ui/product/product_page.dart';
 import 'package:ecommerce_app_ui/services/notification-services.dart';
 import 'package:ecommerce_app_ui/utils/color_manager.dart';
 import 'package:ecommerce_app_ui/utils/image_manager.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/text_style_manager.dart';
 
 class Shoppage extends StatefulWidget {
   const Shoppage({super.key});
@@ -36,6 +39,31 @@ class _ShoppageState extends State<Shoppage> {
 
   @override
   Widget build(BuildContext context) {
+    double cardBorderRadius = 10.0;
+    final screenSize = MediaQuery.of(context).size;
+    const ColorFilter greyscaleImage = ColorFilter.matrix(<double>[
+      0.2126,
+      0.7152,
+      0.0722,
+      0,
+      0,
+      0.2126,
+      0.7152,
+      0.0722,
+      0,
+      0,
+      0.2126,
+      0.7152,
+      0.0722,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+    ]);
+    final dividerWidth = 0.3;
     return Scaffold(
       backgroundColor: Colors.white,
       // appBar: PreferredSize(
@@ -130,24 +158,45 @@ class _ShoppageState extends State<Shoppage> {
                   const SizedBox(
                     width: 25,
                   ),
-                  Card(
-                    // color: ColorUtils.secondaryColor,
-                    // elevation: 5.0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image(
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => ProductPage(
+                                  productTitle: "RAZR",
+                                  productImage: ImageManager.image3)));
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(cardBorderRadius)),
+                      // color: ColorUtils.secondaryColor,
+                      // elevation: 5.0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image(
                               image: AssetImage(ImageManager.image1),
-                              width: 100),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text("RAZR"),
-                          const Text("CR 439600"),
-                        ],
+                              width: 100,
+                              height: 100,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "RAZR",
+                              style: TextStyleManager.productTitle,
+                            ),
+                            Text(
+                              "IDR 439.600",
+                              style: TextStyleManager.priceStyle,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -155,6 +204,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -163,13 +214,17 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image(
-                              image: AssetImage(ImageManager.image2),
-                              width: 100),
+                            image: AssetImage(ImageManager.image2),
+                            width: 100,
+                            height: 100,
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("LITE BOOST II"),
-                          const Text("CR 399009"),
+                          Text("LITE BOOST II",
+                              style: TextStyleManager.productTitle),
+                          Text("IDR 399.009",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -178,6 +233,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -187,13 +244,17 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image(
-                              image: AssetImage(ImageManager.image4),
-                              width: 100),
+                            image: AssetImage(ImageManager.image4),
+                            width: 100,
+                            height: 100,
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("OUTER II"),
-                          const Text("CR 439600"),
+                          Text("OUTER II",
+                              style: TextStyleManager.productTitle),
+                          Text("IDR 439.600",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -202,6 +263,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -211,13 +274,16 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image(
-                              image: AssetImage(ImageManager.image3),
-                              width: 100),
+                            image: AssetImage(ImageManager.image3),
+                            width: 100,
+                            height: 100,
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("RAZR"),
-                          const Text("CR 439600"),
+                          Text("RAZR", style: TextStyleManager.productTitle),
+                          Text("IDR 439.600",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -237,10 +303,11 @@ class _ShoppageState extends State<Shoppage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Text("PREMIUM"),
+                  Text("PREMIUM", style: TextStyleManager.darkHead),
                   Container(
+                    margin: EdgeInsets.only(left: 10),
                     height: 1.2,
-                    width: 150,
+                    width: screenSize.width * dividerWidth,
                     color: ColorManager.primaryColor,
                     // margin: const EdgeInsets.only(left: 10.0, right: 10.0),
                   ),
@@ -251,7 +318,10 @@ class _ShoppageState extends State<Shoppage> {
                   //   indent: 25, //spacing at the start of divider
                   //   // endIndent: 25, //spacing at the end of divider
                   // ),
-                  TextButton(onPressed: () {}, child: const Text("VIEW ALL >"))
+                  TextButton(
+                      onPressed: () {},
+                      child: Text("VIEW ALL >",
+                          style: TextStyleManager.darkTextButton))
                 ],
               ),
             ),
@@ -267,6 +337,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 25,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -276,13 +348,16 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image(
-                              image: AssetImage(ImageManager.image1),
-                              width: 100),
+                            image: AssetImage(ImageManager.image1),
+                            width: 100,
+                            height: 100,
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("RAZR"),
-                          const Text("CR 439600"),
+                          Text("RAZR", style: TextStyleManager.productTitle),
+                          Text("IDR 439.600",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -291,6 +366,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -299,13 +376,17 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image(
-                              image: AssetImage(ImageManager.image2),
-                              width: 100),
+                            image: AssetImage(ImageManager.image2),
+                            width: 100,
+                            height: 100,
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("LITE BOOST II"),
-                          const Text("CR 399009"),
+                          Text("LITE BOOST II",
+                              style: TextStyleManager.productTitle),
+                          Text("IDR 399.009",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -314,6 +395,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -323,13 +406,17 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image(
-                              image: AssetImage(ImageManager.image4),
-                              width: 100),
+                            image: AssetImage(ImageManager.image4),
+                            width: 100,
+                            height: 100,
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("OUTER II"),
-                          const Text("CR 439600"),
+                          Text("OUTER II",
+                              style: TextStyleManager.productTitle),
+                          Text("IDR 439.600",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -338,6 +425,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -347,13 +436,16 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image(
-                              image: AssetImage(ImageManager.image3),
-                              width: 100),
+                            image: AssetImage(ImageManager.image3),
+                            width: 100,
+                            height: 100,
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("RAZR"),
-                          const Text("CR 439600"),
+                          Text("RAZR", style: TextStyleManager.productTitle),
+                          Text("IDR 439.600",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -372,14 +464,18 @@ class _ShoppageState extends State<Shoppage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Text("PREMIUM"),
+                  Text("STAR WARS", style: TextStyleManager.darkHead),
                   Container(
+                    margin: EdgeInsets.only(left: 10),
                     height: 1.2,
-                    width: 150,
+                    width: screenSize.width * dividerWidth,
                     color: ColorManager.primaryColor,
                     // margin: const EdgeInsets.only(left: 10.0, right: 10.0),
                   ),
-                  TextButton(onPressed: () {}, child: const Text("VIEW ALL >"))
+                  TextButton(
+                      onPressed: () {},
+                      child: Text("VIEW ALL >",
+                          style: TextStyleManager.darkTextButton))
                 ],
               ),
             ),
@@ -395,6 +491,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 25,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -403,14 +501,20 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image(
+                          ColorFiltered(
+                            colorFilter: greyscaleImage,
+                            child: Image(
                               image: AssetImage(ImageManager.image1),
-                              width: 100),
+                              width: 100,
+                              height: 100,
+                            ),
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("RAZR"),
-                          const Text("CR 439600"),
+                          Text("RAZR", style: TextStyleManager.productTitle),
+                          Text("IDR 439.600",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -419,6 +523,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -426,14 +532,21 @@ class _ShoppageState extends State<Shoppage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image(
+                          ColorFiltered(
+                            colorFilter: greyscaleImage,
+                            child: Image(
                               image: AssetImage(ImageManager.image2),
-                              width: 100),
+                              width: 100,
+                              height: 100,
+                            ),
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("LITE BOOST II"),
-                          const Text("CR 399009"),
+                          Text("LITE BOOST II",
+                              style: TextStyleManager.productTitle),
+                          Text("IDR 399.009",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -442,6 +555,8 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -450,14 +565,21 @@ class _ShoppageState extends State<Shoppage> {
                         // mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image(
+                          ColorFiltered(
+                            colorFilter: greyscaleImage,
+                            child: Image(
                               image: AssetImage(ImageManager.image4),
-                              width: 100),
+                              width: 100,
+                              height: 100,
+                            ),
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("OUTER II"),
-                          const Text("CR 439600"),
+                          Text("OUTER II",
+                              style: TextStyleManager.productTitle),
+                          Text("IDR 439.600",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -466,6 +588,10 @@ class _ShoppageState extends State<Shoppage> {
                     width: 5,
                   ),
                   Card(
+                    elevation: 2, // Change this
+                    shadowColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cardBorderRadius)),
                     // color: ColorUtils.secondaryColor,
                     // elevation: 5.0,
                     child: Padding(
@@ -474,14 +600,20 @@ class _ShoppageState extends State<Shoppage> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image(
+                          ColorFiltered(
+                            colorFilter: greyscaleImage,
+                            child: Image(
                               image: AssetImage(ImageManager.image3),
-                              width: 100),
+                              width: 100,
+                              height: 100,
+                            ),
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text("RAZR"),
-                          const Text("CR 439600"),
+                          Text("RAZR", style: TextStyleManager.productTitle),
+                          Text("IDR 439.600",
+                              style: TextStyleManager.priceStyle),
                         ],
                       ),
                     ),
@@ -491,6 +623,9 @@ class _ShoppageState extends State<Shoppage> {
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 20,
             ),
           ],
         ),

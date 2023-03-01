@@ -2,9 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:app_settings/app_settings.dart';
-import 'package:ecommerce_app_ui/product/product_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -139,12 +137,12 @@ class NotificationServices {
 
   void handleMessage(BuildContext context, RemoteMessage message) {
     if (message.data['type'] == 'msg') {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => ProductPage(
-                    id: message.data['id'],
-                  )));
+      // Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //         builder: (context) => ProductPage(
+      //               // id: message.data['id'],
+      //             )));
     }
   }
 }
